@@ -1,5 +1,6 @@
 # SubnetMesh
 
+[![CI](https://github.com/whitedarkpro/SubnetMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/whitedarkpro/SubnetMesh/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A lightweight LAN collaboration web app: React + TypeScript, Express + Socket.IO, browser WebRTC audio mesh, screen sharing, text chat, and password-protected channels. Requires Node.js 22 LTS or newer and npm. Dependencies must be installed before offline use. No external CDN, STUN, TURN, or cloud account is used at runtime.
@@ -103,6 +104,10 @@ The smoke check covers channel membership, text delivery, voice membership, sign
 ## Scope
 
 Three preset channels plus user-created channels with optional passwords (scrypt-hashed, in memory); up to six voice participants per channel; one screen share per channel (a new share replaces the current one); mute/unmute; members list; last 200 messages per channel in memory. Restarting the server clears history. Display names are not authenticated identities. This is a trusted-LAN starter, not a heavy cloud suite replacement: no persistent storage, accounts, file sharing, moderation, or large-room SFU. For larger voice groups, replace the mesh with a locally hosted SFU.
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md). To report a security issue, please follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
 
 ## License
 
