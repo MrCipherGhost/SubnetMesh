@@ -1,0 +1,50 @@
+name: Bug report
+description: Something isn't working as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Security issues must not be reported here** — see [SECURITY.md](https://github.com/whitedarkpro/SubnetMesh/blob/main/SECURITY.md).
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start the server with `npm run dev`
+        2. Join #general in two browsers
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Text chat, Voice, Screen sharing, Channels / passwords, Notifications, Setup / HTTPS, Other]
+    validations:
+      required: true
+  - type: input
+    id: browsers
+    attributes:
+      label: Browser(s) and OS
+      placeholder: Chrome 130 on Windows 11, Firefox 131 on Ubuntu
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SubnetMesh version or commit
+      placeholder: v0.1.0 or commit hash
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Browser console errors or server output, if any.
+      render: text
