@@ -32,6 +32,38 @@ npm run dev
 
 Open http://localhost:5173. See the [README](README.md) for testing across devices with HTTPS.
 
+## Project structure
+
+```text
+SubnetMesh/
+  package.json                  Workspace scripts and lint dependencies
+  package-lock.json             Reproducible dependency versions
+  eslint.config.js              TypeScript and React Hooks rules
+  certs/                        Locally generated TLS certificate and key
+  client/
+    package.json
+    tsconfig.json
+    vite.config.ts              HTTPS development server and Socket.IO proxy
+    index.html
+    src/
+      main.tsx                  React entry point
+      App.tsx                   Channels, chat, members, voice and screen controls
+      ScreenStage.tsx           Shared-screen viewer
+      Toasts.tsx                In-app notifications
+      notify.ts                 Desktop notifications and tab-title flashing
+      styles.css                Responsive collaboration interface
+      lib/socket.ts             Same-origin Socket.IO client
+      webrtc/WebRTCManager.ts   Microphone and RTCPeerConnection lifecycle
+  server/
+    package.json
+    tsconfig.json
+    smoke.mjs                   Socket.IO integration smoke check
+    src/
+      dev.ts                    Development HTTP mode behind Vite
+      index.ts                  Static hosting, rooms, text, signaling
+      channels.ts               Channel list, creation, password hashing
+```
+
 ## Before you open a pull request
 
 Run these from the project root:

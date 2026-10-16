@@ -3,7 +3,21 @@
 [![CI](https://github.com/whitedarkpro/SubnetMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/whitedarkpro/SubnetMesh/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A lightweight LAN collaboration web app: React + TypeScript, Express + Socket.IO, browser WebRTC audio mesh, screen sharing, text chat, and password-protected channels. Requires Node.js 22 LTS or newer and npm. Dependencies must be installed before offline use. No external CDN, STUN, TURN, or cloud account is used at runtime.
+**Private chat, voice calls and screen sharing for your local network.** SubnetMesh runs on one computer in your office, home or classroom, and everyone else joins from a browser. No cloud, no accounts, no data leaving your network.
+
+<!-- Screenshot: add an image or GIF here, e.g. ![SubnetMesh](docs/screenshot.png) -->
+
+## Features
+
+- **Text chat** in channels, with the last 200 messages kept per channel
+- **Voice calls** for up to six people per channel, peer-to-peer over WebRTC, with mute
+- **Screen sharing**, one active share per channel
+- **Channels**: three built-in, plus your own with optional password protection
+- **Members list** showing who is in chat, in voice, or sharing their screen
+- **Notifications**: in-app toasts, desktop notifications, and tab-title alerts
+- **Fully offline**: no external CDN, STUN/TURN server, or cloud service at runtime
+
+Built with React + TypeScript on the frontend and Express + Socket.IO on the backend. Requires Node.js 22 or newer.
 
 ## Start on one computer
 
@@ -46,60 +60,11 @@ npm start
 
 Open https://192.168.1.50:3001 when certificates are configured. Allow TCP 3001 on the private-network firewall. One Node process serves both the static frontend and Socket.IO. With no certificates, the server uses HTTP; voice then works only through localhost. Keep the application limited to your trusted LAN; do not forward its port on your router.
 
-## Project structure
-
-```text
-SubnetMesh/
-  package.json                  Workspace scripts and lint dependencies
-  package-lock.json             Reproducible dependency versions
-  eslint.config.js              TypeScript and React Hooks rules
-  certs/                        Locally generated TLS certificate and key
-  client/
-    package.json
-    tsconfig.json
-    vite.config.ts              HTTPS development server and Socket.IO proxy
-    index.html
-    src/
-      main.tsx                  React entry point
-      App.tsx                   Channels, chat, members, voice and screen controls
-      ScreenStage.tsx           Shared-screen viewer
-      Toasts.tsx                In-app notifications
-      notify.ts                 Desktop notifications and tab-title flashing
-      styles.css                Responsive collaboration interface
-      lib/socket.ts             Same-origin Socket.IO client
-      webrtc/WebRTCManager.ts   Microphone and RTCPeerConnection lifecycle
-  server/
-    package.json
-    tsconfig.json
-    smoke.mjs                   Socket.IO integration smoke check
-    src/
-      dev.ts                    Development HTTP mode behind Vite
-      index.ts                  Static hosting, rooms, text, signaling
-      channels.ts               Channel list, creation, password hashing
-```
-
 ## How voice works
 
 Clicking Join voice gets microphone permission and registers voice membership with the server. Only the newcomer sends offers to existing voice participants. Each browser creates one RTCPeerConnection per remote participant in client/src/webrtc/WebRTCManager.ts. Offers, answers, and ICE candidates pass through Socket.IO; audio travels between browsers. Candidates received before the remote description are buffered. Mute disables the local audio track. Leaving voice, changing rooms, or disconnecting closes peer connections and stops microphone tracks. After a server reconnect, text membership is restored; click Join voice again to restore audio.
 
 If the browser blocks playback, click Enable audio. Failed peer connections require leaving and rejoining voice. Empty iceServers works on many directly reachable LANs; it cannot overcome network isolation or every firewall configuration. Networks requiring relaying need a locally hosted TURN server and matching WebRTC configuration.
-
-## Checks
-
-Run in the project root:
-
-```bash
-npm run lint
-npm run build
-```
-
-With `npm run dev` running in another terminal, run:
-
-```bash
-node server/smoke.mjs
-```
-
-The smoke check covers channel membership, text delivery, voice membership, signaling relay, and leaving voice. Real microphone capture, playback, and LAN connectivity must be checked using two browsers/devices; these are not covered by the Node smoke check.
 
 ## Scope
 
