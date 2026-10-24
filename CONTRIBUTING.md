@@ -4,7 +4,7 @@ Thanks for your interest in SubnetMesh! Bug reports, ideas, and pull requests ar
 
 ## Ways to contribute
 
-- **Report a bug** — open an [issue](https://github.com/whitedarkpro/SubnetMesh/issues/new/choose) using the bug report template.
+- **Report a bug** — open an [issue](https://github.com/MrCipherGhost/SubnetMesh/issues/new/choose) using the bug report template.
 - **Suggest a feature** — open an issue using the feature request template.
 - **Report a security issue** — do **not** open a public issue; follow [SECURITY.md](SECURITY.md).
 - **Send a pull request** — see below. Issues labeled `good first issue` are a good place to start.
@@ -24,7 +24,7 @@ For larger changes, please open an issue first to discuss the idea before writin
 Requires Node.js 22 or newer.
 
 ```bash
-git clone https://github.com/whitedarkpro/SubnetMesh.git
+git clone https://github.com/MrCipherGhost/SubnetMesh.git
 cd SubnetMesh
 npm ci
 npm run dev

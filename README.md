@@ -1,6 +1,6 @@
 # SubnetMesh
 
-[![CI](https://github.com/whitedarkpro/SubnetMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/whitedarkpro/SubnetMesh/actions/workflows/ci.yml)
+[![CI](https://github.com/MrCipherGhost/SubnetMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/MrCipherGhost/SubnetMesh/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Private chat, voice calls and screen sharing for your local network.** SubnetMesh runs on one computer in your office, home or classroom, and everyone else joins from a browser. No cloud, no accounts, no data leaving your network.
@@ -76,4 +76,4 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md). To report a s
 
 ## License
 
-SubnetMesh is released under the [MIT License](LICENSE). Copyright (c) 2026 White Dark Pro.
+SubnetMesh is released under the [MIT License](LICENSE).
