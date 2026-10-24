@@ -10,7 +10,7 @@ Security fixes are made for the latest release only. Please update to the newest
 
 Report them privately through GitHub instead:
 
-1. Go to the [Security tab](https://github.com/whitedarkpro/SubnetMesh/security) of this repository.
+1. Go to the [Security tab](https://github.com/MrCipherGhost/SubnetMesh/security) of this repository.
 2. Click **Report a vulnerability**.
 
 Please include:
